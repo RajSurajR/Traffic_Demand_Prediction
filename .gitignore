@@ -1,0 +1,12 @@
+.vscode
+*.rar
+*.zip
+*.csv
+
+analysis/analysis_outputs
+results
+dataset
+
+z_temp
+approach.txt
+README.md
