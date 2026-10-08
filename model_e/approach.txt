@@ -1,0 +1,15 @@
+5-fold LightGBM ensemble with cyclical time encoding.
+
+This version builds a stronger regression pipeline using KFold validation and more expressive temporal features. It standardizes timestamps, creates cyclical time variables, adds geohash-region features, and averages predictions across five fold-specific models.
+
+Main steps:
+- fix train/test timestamp mismatch
+- impute Temperature with median and categorical gaps with 'Unknown'
+- extract hour, minute, and time_in_minutes
+- add time_sin and time_cos for daily periodicity
+- create geohash_zone_4 and geohash_zone_5 plus historical demand averages
+- train LGBMRegressor in 5-fold cross-validation with early stopping
+- ensemble fold predictions into the final submission
+
+Validation outcome: average cross-validation R² ≈ 0.96229.
+

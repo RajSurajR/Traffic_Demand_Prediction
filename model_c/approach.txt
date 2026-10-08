@@ -1,0 +1,12 @@
+Spatially enhanced XGBoost model with leakage-safe target encoding.
+
+This version adds a richer geographic signal by creating geohash-based regions and historical demand baselines. It also includes the day-49 indicator and a consistent train/test preprocessing workflow to improve prediction quality.
+
+Main ideas:
+- Normalize timestamp values and derive hour, minute, and time_in_minutes
+- Mark the day-49 traffic condition with is_day_49
+- Create geohash_zone_4 and geohash_zone_5 features
+- Compute geohash_avg_demand and zone4_avg_demand using training-only statistics
+- Train XGBRegressor with native categorical support
+
+Validation outcome: around 0.9610 R².

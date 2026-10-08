@@ -1,0 +1,12 @@
+LightGBM baseline for traffic demand forecasting.
+
+This notebook standardizes timestamps, fills missing values, adds temporal and spatial features, trains an LGBMRegressor on an 80/20 split, and produces a strong submission file.
+
+Main steps:
+- normalize timestamp format across train and test
+- impute Temperature with median and missing categories with Unknown
+- create hour, minute, and time_in_minutes features
+- add geohash zones and day indicator features
+- use LightGBM categorical support for fast structured-model training
+
+Validation result: about 0.95963 R².

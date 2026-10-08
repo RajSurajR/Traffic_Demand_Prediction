@@ -1,0 +1,12 @@
+Dataset exploration and preprocessing baseline for traffic demand prediction.
+
+This workflow inspects the raw train/test data, checks schema consistency, identifies missing values and class imbalance, and prepares the dataset for stable feature engineering. The notebook confirms that the dataset has 77,299 training rows and 41,778 test rows, with key issues such as timestamp format mismatch, missing Temperature values, missing Weather/RoadType entries, and geohash-based geographic variation.
+
+Key tasks performed:
+- Load and profile train/test CSV files
+- Inspect row counts, columns, dtypes, and duplicate records
+- Quantify missing-value patterns and unique categories
+- Review demand range and day distribution
+- Prepare analysis summaries, histograms, and correlation plots for modeling decisions
+
+This stage helps define the preprocessing rules used in later model notebooks.

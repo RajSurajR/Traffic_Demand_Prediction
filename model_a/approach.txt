@@ -1,0 +1,13 @@
+Baseline XGBoost traffic-demand model.
+
+This notebook handles the first-pass cleaning and modeling pipeline: it fixes timestamp inconsistencies, fills missing values, converts categorical columns into category dtype, extracts time features, trains an XGBRegressor on an 80/20 validation split, and generates the first submission output.
+
+Key steps:
+- Standardize train/test timestamp values
+- Fill Temperature with median and categorical gaps with 'Unknown'
+- Extract hour and minute from the timestamp
+- Convert key categorical fields to pandas category type
+- Train XGBRegressor using hist/tree and categorical support
+- Save the trained model and create the submission file
+
+Validation outcome: about 0.8565 R² on the validation set.

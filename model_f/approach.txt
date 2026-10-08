@@ -1,0 +1,14 @@
+Expanded 10-fold LightGBM ensemble for robust traffic forecasting.
+
+This notebook follows the same preprocessing and feature-engineering pattern as the earlier LightGBM model, but it increases validation stability by using 10 cross-validation folds and averaging the predictions from all trained models.
+
+Main steps:
+- normalize train/test timestamps
+- fill missing values consistently
+- create hour, minute, time_in_minutes, time_sin, and time_cos
+- add geohash-zone features and historical demand baselines
+- train LGBMRegressor with early stopping across multiple folds
+- average fold predictions for the final output
+
+Validation result: average cross-validation R² ≈ 0.95899.
+

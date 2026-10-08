@@ -1,0 +1,14 @@
+Improved XGBoost workflow with a more consistent preprocessing pipeline.
+
+This version standardizes timestamp handling across train and test, adds richer time and spatial features, and uses historical demand averages by geohash region to improve prediction quality.
+
+Main steps:
+- Fix timestamp mismatch between train and test
+- Fill missing Temperature values with median and categorical gaps with 'Unknown'
+- Create hour, minute, and time_in_minutes features
+- Add is_day_49 and geohash zone features (4- and 5-character prefixes)
+- Compute geohash and zone-level historical demand baselines using training data only
+- Train XGBRegressor with categorical support and early stopping
+
+Validation result: roughly 0.8864 R² on the validation set.
+
